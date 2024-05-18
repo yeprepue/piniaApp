@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import IconsPinia from '@/shared/components/icons/IconsPinia.vue';
+import { RouterLink, RouterView } from "vue-router";
+import IconsPinia from "@/shared/components/icons/IconsPinia.vue";
 </script>
 
 <template>
   <header>
-    <IconsPinia/>
-
+    <IconsPinia />
     <div class="wrapper">
-     <h3>Piña - Ejercicios</h3>
-
+      
       <nav>
         <RouterLink to="/">Counter Options</RouterLink>
       </nav>
