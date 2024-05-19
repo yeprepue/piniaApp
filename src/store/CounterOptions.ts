@@ -1,28 +1,31 @@
 import { defineStore } from "pinia";
 
+// Definir el estado de la tienda con tipado
 interface CounterOptionsState {
     count: number;
-    lastChage?: Date;
-
+    lastChange?: Date;  
 }
 
+// Definir y exportar la tienda
 export const useCounterOptionsStore = defineStore('counterOptions', {
-    state: () => ({
+    state: (): CounterOptionsState => ({
         count: 0,
-        lastChage: undefined,
-    } as CounterOptionsState),
+        lastChange: undefined,
+    }),
     getters: {
-        squaredCount: (state) => state.count * state.count,
+        squaredCount: (state): number => state.count * state.count,
     },
-
     actions: {
         incrementBy(value: number) {
             this.count += value;
-            this.lastChage = new Date();
+            this.lastChange = new Date();
         },
-        incremet() {
+        increment() {
             this.incrementBy(1);
+        },
+        reset() {
+            this.count = 0;
+            this.lastChange = undefined;
         }
-
     }
 });
