@@ -7,6 +7,7 @@ const counter = useCounterSetupStore();
 <template>
     <h1>El valor es: {{ counter.count }}</h1>
     <h3>Último cambio:  {{ counter.lastChange  }}</h3>
+    
 </template>
 <style scoped>
 
