@@ -33,7 +33,7 @@ watch( totalPages, () => {
         
         <button
             v-for="number of totalPageNumbers"
-            :key="number"
+            :key="number"   
             :class="{ active: currentPage === number }"
             @click="emits( 'pageChanged', number )"
         >{{ number }}</button>
