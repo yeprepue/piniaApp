@@ -1,35 +1,33 @@
-<script setup>
-import { useCounterOptionsStore } from "../../store/CounterOptions";
-import { storeToRefs } from "pinia";
-import CounterOptionsValue from "../components/CounterOptionsValue.vue";
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useCounterOptionsStore } from '@/store/counter-options';
+import CounterOptionsValue from '../components/CounterOptionsValue.vue';
 
-// Crear instancia de la tienda
+
 const counterStore = useCounterOptionsStore();
-const { count, squaredCount } = storeToRefs(counterStore);
+const { count, squareCount } = storeToRefs( counterStore );
+const { increment, incrementBy } = counterStore;
 
-// Funciones de la tienda
-const increment = counterStore.increment;
-const incrementBy = counterStore.incrementBy;
-const resetCounter = () => {
-  counterStore.reset();
-};
 </script>
-
 <template>
-  <h1>Pinia Options</h1>
-  <h4>Counter: {{ count }}</h4>
-  <h4>Square: {{ squaredCount }}</h4>
-  <br />
-  <button @click="increment">+1</button>
-  <button @click="incrementBy(2)">+2</button>
-  <button @click="incrementBy(5)">+5</button>
-  <button @click="resetCounter">Reset</button>
-  <br>
-  <CounterOptionsValue />
+    <h1>Pinia Options</h1>
+    <h4>Counter: {{ count }} </h4>
+    <h4>Square: {{ squareCount }}</h4>
+
+    <br>
+    <button @click="increment()">+1</button>
+    <button @click="incrementBy(2)">+2</button>
+    <button @click="incrementBy(5)">+5</button>
+    <button @click="counterStore.$reset()">Reset</button>
+
+    <br>
+    <CounterOptionsValue />
+
 </template>
+
 
 <style scoped>
 button {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 </style>

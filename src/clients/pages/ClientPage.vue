@@ -4,11 +4,10 @@
 
 <template>
     <div>
-        <h1>Clientes</h1>
-
-        <RouterView />
+        <h1>Cliente por ID</h1>
     </div>
 </template>
+
 
 <style scoped>
 
